@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732784086155",
+    "project_id": "sellsi",
+    "storage_bucket": "sellsi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732784086155:android:6ba1c1a04327824f12988e",
+        "android_client_info": {
+          "package_name": "com.example.sell_si"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732784086155-odukhvg67jdmblqm6j13a72h55r2aaus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqSF76NgiS2hhoigR5YYfye3u_fzGuIuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732784086155-odukhvg67jdmblqm6j13a72h55r2aaus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
