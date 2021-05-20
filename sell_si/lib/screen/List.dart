@@ -10,6 +10,8 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
     final auth =  FirebaseAuth.instance;
+      CollectionReference itemproduct =
+      FirebaseFirestore.instance.collection("Products");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +43,7 @@ class _ListPageState extends State<ListPage> {
                   icon: const Icon(Icons.delete),
                   tooltip: 'Delete  item : ' + product["title"],
                   onPressed: () {
+                     product.reference.delete();
                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(
                             "ลบสินค้า " + product["title"] + "เรียบร้อยแล้ว"),

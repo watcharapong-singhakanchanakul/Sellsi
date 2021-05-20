@@ -80,42 +80,37 @@ class Body extends StatelessWidget {
             ],
           ),
         ),
-        StreamBuilder(
-          stream: FirebaseFirestore.instance.collection("Products").snapshots(),
-          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: Text("ยังไม่มีข้อมูล"),
-              );
-            }
-            return ListView(
-                children: snapshot.data!.docs.map((product) {
-              return Container(
-                child: ListTile(
-                  leading: CircleAvatar(
-                    maxRadius: 30,
-                    minRadius: 30,
-                    child: FittedBox(
-                      child: Text(product["price"]),
+        Container(
+          height: MediaQuery.of(context).size.width * 0.9,
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: StreamBuilder(
+            stream:
+                FirebaseFirestore.instance.collection("Products").snapshots(),
+            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: Text("ยังไม่มีข้อมูลdddd"),
+                );
+              }
+              return ListView(
+                  children: snapshot.data!.docs.map((product) {
+                return Container(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      maxRadius: 30,
+                      minRadius: 30,
+                      child: FittedBox(
+                        child: Text(product["price"]),
+                      ),
                     ),
+                    title: Text(product["title"]),
+                    subtitle: Text(product["desciption"]),
                   ),
-                  title: Text(product["title"]),
-                  subtitle: Text(product["desciption"]),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete),
-                    tooltip: 'Delete  item : ' + product["title"],
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            "ลบสินค้า " + product["title"] + "เรียบร้อยแล้ว"),
-                      ));
-                    },
-                  ),
-                ),
-              );
-            }).toList());
-          },
-        ),
+                );
+              }).toList());
+            },
+          ),
+        )
       ],
     );
   }
