@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sell_si/screen/AddItem.dart';
 import 'package:sell_si/screen/List.dart';
 import 'package:sell_si/screen/home.dart';
+import 'package:sell_si/screen/index.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -41,34 +41,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
- 
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3 ,
+      length: 3,
       child: Scaffold(
         body: TabBarView(
-          children:[
-            HomePage(),
-            AdditemPage(),
-            ListPage()
-        ],
+          children: [IndexPage(), AdditemPage(), ListPage()],
         ),
         backgroundColor: Colors.blue,
         bottomNavigationBar: TabBar(
-          tabs: [ 
-               Icon(Icons.home),
-               Icon(Icons.plus_one),
-               Icon(Icons.list)
-            ],
-        
-          
+          tabs: [Icon(Icons.home), Icon(Icons.plus_one), Icon(Icons.list)],
         ),
-        
       ),
-      
     );
   }
 }
