@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         body: TabBarView(
-          children: [IndexPage(), AdditemPage(), ListPage()],
+          children: [IndexScreen(), AdditemPage(), ListPage()],
         ),
         backgroundColor: Colors.blue,
         bottomNavigationBar: TabBar(
