@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sell_si/screen/home.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -78,8 +81,29 @@ class _RegisterState extends State<Register> {
                               "Add",
                               style: TextStyle(fontSize: 20),
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               print(email.text + password.text);
+                              try {
+                                await FirebaseAuth.instance
+                                    .createUserWithEmailAndPassword(
+                                        email: email.text,
+                                        password: password.text);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content:
+                                      Text("สร้างบัญชีผู้ ใช้เรียบร้อยแล้ว"),
+                                ));
+
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return HomePage();
+                                }));
+                              } on FirebaseAuthException catch (e) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text(e.message.toString()),
+                                ));
+                              }
                             },
                           ),
                         )
