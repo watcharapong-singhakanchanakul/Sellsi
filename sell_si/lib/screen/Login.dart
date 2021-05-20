@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
 
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MyHomePage(title: 'HOME',);
+                                  return MyHomePage(title: email.text,);
                                 }));
                               } on FirebaseAuthException catch (e) {
                                 ScaffoldMessenger.of(context)
