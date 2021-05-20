@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
           if (snapshot.hasError) {
             return Scaffold(
               appBar: AppBar(
-                title: Text("Error"),
+                title: Text("Error "),
               ),
               body: Center(child: Text("${snapshot.error}")),
             );
@@ -89,13 +89,15 @@ class _LoginPageState extends State<LoginPage> {
                                         password: password.text);
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
-                                  content:
-                                      Text("คุณ "+ email.text +" เข้าสู่ระบบแล้ว"),
+                                  content: Text(
+                                      "คุณ " + email.text + " เข้าสู่ระบบแล้ว"),
                                 ));
 
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MyHomePage(title: email.text,);
+                                  return MyHomePage(
+                                    title: email.text,
+                                  );
                                 }));
                               } on FirebaseAuthException catch (e) {
                                 ScaffoldMessenger.of(context)
