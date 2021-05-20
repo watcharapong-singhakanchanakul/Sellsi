@@ -14,6 +14,8 @@ class Body extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               Container(
+                padding: EdgeInsets.only(
+                    left: 20.0, right: 20.0, bottom: 36 + 20.00),
                 height: size.height * 0.2 - 27,
                 decoration: BoxDecoration(
                   color: Colors.blue,
@@ -21,6 +23,17 @@ class Body extends StatelessWidget {
                     bottomLeft: Radius.circular(36),
                     bottomRight: Radius.circular(36),
                   ),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      'Sellsi',
+                      style: Theme.of(context).textTheme.headline5!.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Image.asset("assets/images/logo.png")
+                  ],
                 ),
               ),
               Positioned(
@@ -43,17 +56,23 @@ class Body extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search",
-                      hintStyle: TextStyle(
-                        color: Colors.blue.withOpacity(0.5),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: TextField(
+                          onChanged: (value) {},
+                          decoration: InputDecoration(
+                            hintText: "Search",
+                            hintStyle: TextStyle(
+                              color: Colors.blue.withOpacity(0.5),
+                            ),
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                          ),
+                        ),
                       ),
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      suffixIcon:
-                          SvgPicture.asset("sell_si/assets/icons/search.svg"),
-                    ),
+                      SvgPicture.asset("assets/icons/search.svg"),
+                    ],
                   ),
                 ),
               ),

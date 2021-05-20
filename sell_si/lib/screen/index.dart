@@ -8,7 +8,7 @@ class IndexScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-       body: StreamBuilder(
+      body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("Products").snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
@@ -33,10 +33,10 @@ class IndexScreen extends StatelessWidget {
                   icon: const Icon(Icons.delete),
                   tooltip: 'Delete  item : ' + product["title"],
                   onPressed: () {
-                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            "ลบสินค้า " + product["title"] + "เรียบร้อยแล้ว"),
-                      ));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          "ลบสินค้า " + product["title"] + "เรียบร้อยแล้ว"),
+                    ));
                   },
                 ),
               ),
@@ -51,7 +51,7 @@ class IndexScreen extends StatelessWidget {
     return AppBar(
       elevation: 0,
       leading: IconButton(
-        icon: Icon(Icons.delete_forever),
+        icon: SvgPicture.asset("assets/icons/menu.svg"),
         onPressed: () {},
       ),
     );
